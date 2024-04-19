@@ -75,10 +75,10 @@ app.post('/todos', async (req, res) => {
 // API to update todo
 app.put('/todos/:id', async (req, res) => {
   const id = req.params.id;
-  const { title, description, status } = req.body;
+  const { title, description} = req.body;
   const updateTodoQuery = `
     UPDATE todos
-    SET title='${title}', description='${description}', status='${status}'
+    SET title='${title}', description='${description}', status='not completed'
     WHERE id=${id}
   `;
   await database.run(updateTodoQuery);
